@@ -18,8 +18,8 @@
 
     .grid { 
       display: grid; 
-      grid-template-columns: repeat(2, auto); 
-      gap: 16px 24px; 
+      grid-template-columns: 1fr auto; 
+      gap: 10px 10px; 
       margin-bottom: 20px; 
       align-items: center;
     }
@@ -27,7 +27,7 @@
     .item { 
       display: flex; 
       align-items: center; 
-      gap: 12px; 
+      gap: 10px; 
       font-size: 22px;
     }
 
@@ -38,13 +38,14 @@
     }
 
     input { 
-      width: 80px; 
+      width: 70px; 
       font-size: 22px; 
       padding: 4px;
       border-radius: 6px;
       border: 1px solid #666;
       background: #222;
       color: #fff;
+      margin-left: -10px; /* ← 左に寄せて距離を縮める */
     }
 
     button {
@@ -130,16 +131,20 @@
             beginAtZero: true,
             ticks: { 
               stepSize: 1,
-              color: '#fff'
+              color: '#fff',
+              font: { size: 18 }
             },
             grid: { color: '#555' },
             angleLines: { color: '#555' },
-            pointLabels: { color: '#fff', font: { size: 16 } }
+            pointLabels: { 
+              color: '#fff',
+              font: { size: 22 }  /* ← レーダーの文字を大きく */
+            }
           }
         },
         plugins: {
           legend: {
-            labels: { color: '#fff', font: { size: 18 } }
+            labels: { color: '#fff', font: { size: 20 } }
           }
         }
       }
