@@ -23,16 +23,28 @@
     h2 { font-size: 36px; text-align: center; }
     p { font-size: 24px; line-height: 1.4; }
 
+    .header-row {
+      display: grid;
+      grid-template-columns: auto 1fr 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+      font-size: 24px;
+      text-align: center;
+    }
+
     .group-title {
       margin-top: 20px;
       font-size: 28px;
       font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: auto auto auto auto;
-      gap: 10px 6px;
+      grid-template-columns: auto 1fr 1fr 1fr;
+      gap: 10px;
       align-items: center;
       margin-bottom: 10px;
     }
@@ -62,9 +74,9 @@
     }
 
     .sum-box {
-      font-size: 26px;
-      margin: 10px 0;
+      font-size: 24px;
       text-align: right;
+      grid-column: 1 / 5;
     }
 
     button {
@@ -90,7 +102,14 @@
     （<b>金は3倍、銀は2倍、銅は1倍でカウント</b>）
   </p>
 
-  <!-- 各カテゴリの入力欄（金・銀・銅） -->
+  <!-- 金銀銅の説明を一番上にまとめる -->
+  <div class="header-row">
+    <div></div>
+    <div>金</div>
+    <div>銀</div>
+    <div>銅</div>
+  </div>
+
   <div id="inputs"></div>
 
   <button id="updateBtn">グラフ更新</button>
@@ -116,19 +135,14 @@
   // 入力欄を自動生成
   categories.forEach((cat, i) => {
     container.innerHTML += `
-      <div class="group-title">
-        <img src="${cat.img}" style="width:50px;vertical-align:middle;">
-        ${cat.name}
-      </div>
-
       <div class="grid">
-        <div>金(×3)</div>
+        <div class="item">
+          <img src="${cat.img}">
+          ${cat.name}
+        </div>
+
         <input type="number" id="g${i}" value="0" min="0">
-
-        <div>銀(×2)</div>
         <input type="number" id="s${i}" value="0" min="0">
-
-        <div>銅(×1)</div>
         <input type="number" id="b${i}" value="0" min="0">
 
         <div class="sum-box" id="sum${i}">合計: 0</div>
