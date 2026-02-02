@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <title>あなたの雪嵐タイプ診断☆</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
     body { 
-      font-family: system-ui, sans-serif; 
+      font-family: "Meiryo", "メイリオ", sans-serif;
       padding: 20px; 
       background: #000;
       color: #fff;
@@ -20,30 +21,29 @@
       width: 100%;
     }
 
-    h2 { font-size: 36px; text-align: center; }
-    p { font-size: 24px; line-height: 1.4; }
+    h2 { 
+      font-size: 36px; 
+      text-align: center; 
+    }
 
+    p { 
+      font-size: 24px; 
+      line-height: 1.4; 
+    }
+
+    /* 金銀銅のヘッダー行 */
     .header-row {
       display: grid;
-      grid-template-columns: auto 1fr 1fr 1fr;
-      gap: 10px;
+      grid-template-columns: 150px 80px 80px 80px; /* ← 列幅固定でズレ防止 */
+      text-align: center;
       margin-top: 20px;
       font-size: 24px;
-      text-align: center;
     }
 
-    .group-title {
-      margin-top: 20px;
-      font-size: 28px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
+    /* 各カテゴリ行 */
     .grid {
       display: grid;
-      grid-template-columns: auto 1fr 1fr 1fr;
+      grid-template-columns: 150px 80px 80px 80px; /* ← ここも固定 */
       gap: 10px;
       align-items: center;
       margin-bottom: 10px;
@@ -74,9 +74,10 @@
     }
 
     .sum-box {
-      font-size: 24px;
-      text-align: right;
       grid-column: 1 / 5;
+      text-align: right;
+      font-size: 24px;
+      padding-right: 5px;
     }
 
     button {
@@ -92,6 +93,7 @@
     }
   </style>
 </head>
+
 <body>
 <div class="container">
 
@@ -102,7 +104,7 @@
     （<b>金は3倍、銀は2倍、銅は1倍でカウント</b>）
   </p>
 
-  <!-- 金銀銅の説明を一番上にまとめる -->
+  <!-- 金銀銅の説明を上にまとめる -->
   <div class="header-row">
     <div></div>
     <div>金</div>
