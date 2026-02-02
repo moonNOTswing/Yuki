@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>勲章タイプ レーダーチャート</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 20px; }
+    .grid { 
+      display: grid; 
+      grid-template-columns: repeat(2, auto); 
+      gap: 12px 20px; 
+      margin-bottom: 16px; 
+      align-items: center;
+    }
+    .item { display: flex; align-items: center; gap: 10px; }
+    .item img { width: 50px; height: 50px; }
+    input { width: 60px; }
+  </style>
+</head>
+<body>
+  <h2>勲章タイプ レーダーチャート</h2>
+  <p>各勲章は1つ＝1点で計算します。</p>
+
+  <div class="grid">
+
+    <div class="item">
+      <img src="img1.jpeg">
+      撃破系
+    </div>
+    <input type="number" id="v1" value="0" min="0">
+
+    <div class="item">
+      <img src="img2.jpeg">
+      守護系
+    </div>
+    <input type="number" id="v2" value="0" min="0">
+
+    <div class="item">
+      <img src="img3.jpeg">
+      物資系
+    </div>
+    <input type="number" id="v3" value="0" min="0">
+
+    <div class="item">
+      <img src="img4.jpeg">
+      制圧系
+    </div>
+    <input type="number" id="v4" value="0" min="0">
+
+    <div class="item">
+      <img src="img5.jpeg">
+      疾走系
+    </div>
+    <input type="number" id="v5" value="0" min="0">
+
+    <div class="item">
+      <img src="img6.jpeg">
+      治癒系
+    </div>
+    <input type="number" id="v6" value="0" min="0">
+
+  </div>
+
+  <button id="updateBtn">グラフ更新</button>
+
+  <div style="max-width: 600px; margin-top: 24px;">
+    <canvas id="radarChart"></canvas>
+  </div>
+
+  <script>
+    const labels = ['撃破系', '守護系', '物資系', '制圧系', '疾走系', '治癒系'];
+
+    const ctx = document.getElementById('radarChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'タイプスコア',
+          data: [0, 0, 0, 0, 0, 0],
+          backgroundColor: 'rgba(255, 165, 0, 0.2)',
+          borderColor: 'rgba(255, 165, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 165, 0, 1)'
+        }]
+      },
+      options: {
+        scales: {
+          r: {
+            beginAtZero: true,
+            ticks: { stepSize: 1 }
+          }
+        }
+      }
+    });
+
+    function updateChart() {
+      const values = [];
+      for (let i = 1; i <= 6; i++) {
+        values.push(Number(document.getElementById('v' + i).value || 0));
+      }
+      chart.data.datasets[0].data = values;
+      chart.update();
+    }
+
+    document.getElementById('updateBtn').addEventListener('click', updateChart);
+  </script>
+</body>
+</html>
