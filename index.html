@@ -10,17 +10,16 @@
       padding: 20px; 
       background: #000;
       color: #fff;
-      font-size: 24px;
+      font-size: 30px; /* ← 全体フォントさらに大きく */
     }
 
-    h2 { font-size: 32px; }
-    p { font-size: 24px; }
+    h2 { font-size: 38px; }
+    p { font-size: 28px; }
 
-    /* 入力欄を限界まで左に寄せるために調整 */
     .grid { 
       display: grid; 
-      grid-template-columns: auto 70px; 
-      gap: 10px 0px; /* ← 横の隙間ゼロに近い */
+      grid-template-columns: auto 80px; 
+      gap: 12px 0px; /* ← 横の隙間ゼロに近い */
       margin-bottom: 20px; 
       align-items: center;
     }
@@ -28,30 +27,30 @@
     .item { 
       display: flex; 
       align-items: center; 
-      gap: 6px; /* ← アイコンと文字の距離も縮める */
-      font-size: 26px;
+      gap: 8px; 
+      font-size: 30px; /* ← 左側の文字も大きく */
     }
 
     .item img { 
-      width: 65px; 
-      height: 65px; 
+      width: 80px;  /* ← アイコン大きく */
+      height: 80px;
       object-fit: contain; 
     }
 
     input { 
-      width: 70px; 
-      font-size: 26px; 
-      padding: 4px;
+      width: 90px; 
+      font-size: 30px; 
+      padding: 6px;
       border-radius: 6px;
       border: 1px solid #666;
       background: #222;
       color: #fff;
-      margin-left: -8px; /* ← アイコン側に寄せる */
+      margin-left: -25px; /* ← さらに左へ寄せる */
     }
 
     button {
-      font-size: 26px;
-      padding: 12px 24px;
+      font-size: 30px;
+      padding: 14px 28px;
       border-radius: 8px;
       border: none;
       background: #ff9800;
@@ -134,19 +133,19 @@
             ticks: { 
               stepSize: 1,
               color: '#fff',
-              font: { size: 20 }
+              font: { size: 24 } /* ← 目盛り文字も大きく */
             },
             grid: { color: '#555' },
             angleLines: { color: '#555' },
             pointLabels: { 
               color: '#fff',
-              font: { size: 26 }
+              font: { size: 30 } /* ← レーダー項目文字さらに大きく */
             }
           }
         },
         plugins: {
           legend: {
-            labels: { color: '#fff', font: { size: 22 } }
+            labels: { color: '#fff', font: { size: 26 } }
           }
         }
       }
