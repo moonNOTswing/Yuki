@@ -31,34 +31,42 @@
       line-height: 1.4; 
     }
 
-    /* 金銀銅のヘッダー行 */
+    /* 金銀銅ヘッダー */
     .header-row {
-      display: grid;
-      grid-template-columns: 150px 80px 80px 80px; /* ← 列幅固定でズレ防止 */
-      text-align: center;
+      display: flex;
+      align-items: center;
       margin-top: 20px;
       font-size: 24px;
     }
 
-    /* 各カテゴリ行 */
-    .grid {
-      display: grid;
-      grid-template-columns: 150px 80px 80px 80px; /* ← ここも固定 */
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 10px;
+    .header-row div:first-child {
+      width: 150px; /* カテゴリ名の幅を固定 */
     }
 
-    .item {
+    .header-row div {
+      width: 80px;
+      text-align: center;
+    }
+
+    /* 各行（カテゴリ） */
+    .row {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .cat {
+      width: 150px; /* 折り返し防止 */
+      white-space: nowrap;
       display: flex;
       align-items: center;
       gap: 8px;
       font-size: 26px;
     }
 
-    .item img {
-      width: 70px;
-      height: 70px;
+    .cat img {
+      width: 60px;
+      height: 60px;
       object-fit: contain;
     }
 
@@ -71,13 +79,13 @@
       background: #222;
       color: #fff;
       text-align: center;
+      margin-right: 10px;
     }
 
-    .sum-box {
-      grid-column: 1 / 5;
-      text-align: right;
+    .sum {
+      margin-left: auto; /* 右端に寄せる */
       font-size: 24px;
-      padding-right: 5px;
+      white-space: nowrap;
     }
 
     button {
@@ -104,12 +112,13 @@
     （<b>金は3倍、銀は2倍、銅は1倍でカウント</b>）
   </p>
 
-  <!-- 金銀銅の説明を上にまとめる -->
+  <!-- 金銀銅ヘッダー -->
   <div class="header-row">
     <div></div>
     <div>金</div>
     <div>銀</div>
     <div>銅</div>
+    <div style="width:80px; text-align:right;">合計</div>
   </div>
 
   <div id="inputs"></div>
@@ -137,8 +146,8 @@
   // 入力欄を自動生成
   categories.forEach((cat, i) => {
     container.innerHTML += `
-      <div class="grid">
-        <div class="item">
+      <div class="row">
+        <div class="cat">
           <img src="${cat.img}">
           ${cat.name}
         </div>
@@ -147,7 +156,7 @@
         <input type="number" id="s${i}" value="0" min="0">
         <input type="number" id="b${i}" value="0" min="0">
 
-        <div class="sum-box" id="sum${i}">合計: 0</div>
+        <div class="sum" id="sum${i}">0</div>
       </div>
     `;
   });
@@ -194,7 +203,7 @@
       const total = gold * 3 + silver * 2 + bronze * 1;
       totals.push(total);
 
-      document.getElementById(`sum${i}`).innerText = `合計: ${total}`;
+      document.getElementById(`sum${i}`).innerText = total;
     });
 
     chart.data.datasets[0].data = totals;
