@@ -5,17 +5,57 @@
   <title>勲章タイプ レーダーチャート</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body { font-family: system-ui, sans-serif; padding: 20px; }
+    body { 
+      font-family: system-ui, sans-serif; 
+      padding: 20px; 
+      background: #000;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    h2 { font-size: 28px; }
+    p { font-size: 20px; }
+
     .grid { 
       display: grid; 
       grid-template-columns: repeat(2, auto); 
-      gap: 12px 20px; 
-      margin-bottom: 16px; 
+      gap: 16px 24px; 
+      margin-bottom: 20px; 
       align-items: center;
     }
-    .item { display: flex; align-items: center; gap: 10px; }
-    .item img { width: 50px; height: 50px; object-fit: contain; }
-    input { width: 60px; }
+
+    .item { 
+      display: flex; 
+      align-items: center; 
+      gap: 12px; 
+      font-size: 22px;
+    }
+
+    .item img { 
+      width: 60px; 
+      height: 60px; 
+      object-fit: contain; 
+    }
+
+    input { 
+      width: 80px; 
+      font-size: 22px; 
+      padding: 4px;
+      border-radius: 6px;
+      border: 1px solid #666;
+      background: #222;
+      color: #fff;
+    }
+
+    button {
+      font-size: 22px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      background: #ff9800;
+      color: #000;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -79,7 +119,7 @@
         datasets: [{
           label: 'タイプスコア',
           data: [0, 0, 0, 0, 0, 0],
-          backgroundColor: 'rgba(255, 165, 0, 0.2)',
+          backgroundColor: 'rgba(255, 165, 0, 0.25)',
           borderColor: 'rgba(255, 165, 0, 1)',
           pointBackgroundColor: 'rgba(255, 165, 0, 1)'
         }]
@@ -88,7 +128,18 @@
         scales: {
           r: {
             beginAtZero: true,
-            ticks: { stepSize: 1 }
+            ticks: { 
+              stepSize: 1,
+              color: '#fff'
+            },
+            grid: { color: '#555' },
+            angleLines: { color: '#555' },
+            pointLabels: { color: '#fff', font: { size: 16 } }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: { color: '#fff', font: { size: 18 } }
           }
         }
       }
