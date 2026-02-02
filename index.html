@@ -10,16 +10,17 @@
       padding: 20px; 
       background: #000;
       color: #fff;
-      font-size: 24px; /* ← 全体の文字さらに大きく */
+      font-size: 24px;
     }
 
     h2 { font-size: 32px; }
     p { font-size: 24px; }
 
+    /* 入力欄を限界まで左に寄せるために調整 */
     .grid { 
       display: grid; 
-      grid-template-columns: 1fr auto; 
-      gap: 14px 6px; /* ← 横の距離をさらに縮める */
+      grid-template-columns: auto 70px; 
+      gap: 10px 0px; /* ← 横の隙間ゼロに近い */
       margin-bottom: 20px; 
       align-items: center;
     }
@@ -27,7 +28,7 @@
     .item { 
       display: flex; 
       align-items: center; 
-      gap: 8px; /* ← アイコンと文字の距離も少し縮める */
+      gap: 6px; /* ← アイコンと文字の距離も縮める */
       font-size: 26px;
     }
 
@@ -38,14 +39,14 @@
     }
 
     input { 
-      width: 80px; 
+      width: 70px; 
       font-size: 26px; 
       padding: 4px;
       border-radius: 6px;
       border: 1px solid #666;
       background: #222;
       color: #fff;
-      margin-left: -20px; /* ← さらに左へ寄せて距離を縮める */
+      margin-left: -8px; /* ← アイコン側に寄せる */
     }
 
     button {
@@ -62,7 +63,7 @@
 </head>
 <body>
   <h2>勲章タイプ レーダーチャート</h2>
-  <p>各勲章は1つ＝1点で計算します。</p>
+  <p>各勲章は1つにつき1点で計算します（<b>金銀銅の色に限らず1カウント</b>）。</p>
 
   <div class="grid">
 
@@ -133,13 +134,13 @@
             ticks: { 
               stepSize: 1,
               color: '#fff',
-              font: { size: 20 } /* ← 目盛り文字も大きく */
+              font: { size: 20 }
             },
             grid: { color: '#555' },
             angleLines: { color: '#555' },
             pointLabels: { 
               color: '#fff',
-              font: { size: 26 } /* ← レーダー項目文字さらに大きく */
+              font: { size: 26 }
             }
           }
         },
