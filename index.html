@@ -10,16 +10,16 @@
       padding: 20px; 
       background: #000;
       color: #fff;
-      font-size: 20px;
+      font-size: 24px; /* ← 全体の文字さらに大きく */
     }
 
-    h2 { font-size: 28px; }
-    p { font-size: 20px; }
+    h2 { font-size: 32px; }
+    p { font-size: 24px; }
 
     .grid { 
       display: grid; 
       grid-template-columns: 1fr auto; 
-      gap: 10px 10px; 
+      gap: 14px 6px; /* ← 横の距離をさらに縮める */
       margin-bottom: 20px; 
       align-items: center;
     }
@@ -27,35 +27,36 @@
     .item { 
       display: flex; 
       align-items: center; 
-      gap: 10px; 
-      font-size: 22px;
+      gap: 8px; /* ← アイコンと文字の距離も少し縮める */
+      font-size: 26px;
     }
 
     .item img { 
-      width: 60px; 
-      height: 60px; 
+      width: 65px; 
+      height: 65px; 
       object-fit: contain; 
     }
 
     input { 
-      width: 70px; 
-      font-size: 22px; 
+      width: 80px; 
+      font-size: 26px; 
       padding: 4px;
       border-radius: 6px;
       border: 1px solid #666;
       background: #222;
       color: #fff;
-      margin-left: -10px; /* ← 左に寄せて距離を縮める */
+      margin-left: -20px; /* ← さらに左へ寄せて距離を縮める */
     }
 
     button {
-      font-size: 22px;
-      padding: 10px 20px;
+      font-size: 26px;
+      padding: 12px 24px;
       border-radius: 8px;
       border: none;
       background: #ff9800;
       color: #000;
       font-weight: bold;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -132,19 +133,19 @@
             ticks: { 
               stepSize: 1,
               color: '#fff',
-              font: { size: 18 }
+              font: { size: 20 } /* ← 目盛り文字も大きく */
             },
             grid: { color: '#555' },
             angleLines: { color: '#555' },
             pointLabels: { 
               color: '#fff',
-              font: { size: 22 }  /* ← レーダーの文字を大きく */
+              font: { size: 26 } /* ← レーダー項目文字さらに大きく */
             }
           }
         },
         plugins: {
           legend: {
-            labels: { color: '#fff', font: { size: 20 } }
+            labels: { color: '#fff', font: { size: 22 } }
           }
         }
       }
