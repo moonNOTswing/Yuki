@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>勲章タイプ レーダーチャート</title>
+  <title>あなたの雪嵐タイプ診断☆</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body { 
@@ -21,12 +21,12 @@
       width: 100%;
     }
 
-    h2 { font-size: 34px; }
-    p { font-size: 26px; }
+    h2 { font-size: 38px; text-align: center; }
+    p { font-size: 26px; line-height: 1.4; }
 
     .grid { 
       display: grid; 
-      grid-template-columns: auto 80px; 
+      grid-template-columns: auto 90px; 
       gap: 14px 0px;
       margin-bottom: 20px; 
       align-items: center;
@@ -53,7 +53,7 @@
       border: 1px solid #666;
       background: #222;
       color: #fff;
-      margin-left: -20px;
+      margin-left: -20px; /* ← アイコンのすぐ横に寄せる */
     }
 
     button {
@@ -72,8 +72,12 @@
 <body>
 <div class="container">
 
-  <h2>勲章タイプ レーダーチャート</h2>
-  <p>各勲章は1つにつき1点で計算します（<b>金銀銅の色に限らず1カウント</b>）。</p>
+  <h2>あなたの雪嵐タイプ診断☆</h2>
+
+  <p>
+    各勲章は1つにつき1点で計算します<br>
+    （<b>金銀銅の色に限らず1カウント</b>）
+  </p>
 
   <div class="grid">
 
